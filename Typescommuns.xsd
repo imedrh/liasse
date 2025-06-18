@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="urn:liassefiscale:typescommuns"
+           xmlns="urn:liassefiscale:typescommuns"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="urn:liassefiscale:entete" schemaLocation="Entete.xsd"/>
+	<xs:simpleType name="T_NumMatriculeFiscal">
+		<xs:annotation>
+			<xs:documentation>Numero matricule fiscal</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="7"/>
+			<xs:whiteSpace value="collapse"/>
+			<xs:pattern value="[0-9]{7}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_CleMatriculeFiscal">
+		<xs:annotation>
+			<xs:documentation>Clé matricule fiscal</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:pattern value="[ABCDEFGHJKLMNPQRSTVWXYZ]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_CodeCategorie">
+		<xs:annotation>
+			<xs:documentation>Code categorie</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:enumeration value="C"/>
+			<xs:enumeration value="M"/>
+			<xs:enumeration value="N"/>
+			<xs:enumeration value="P"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_CodeTva">
+		<xs:annotation>
+			<xs:documentation>Code TVA</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:enumeration value="A"/>
+			<xs:enumeration value="B"/>
+			<xs:enumeration value="D"/>
+			<xs:enumeration value="P"/>
+			<xs:enumeration value="N"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_MatriculeFiscal_13c">
+		<xs:annotation>
+			<xs:documentation>Matricule fiscal de structure : MAT-CLE-TVA-CAT-ETB</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:pattern value="[0-9]{7}[ABCDEFGHJKLMNPQRSTVWXYZ][ABDNP][CMNP][0]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_Annee">
+		<xs:annotation>
+			<xs:documentation>Année</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:gYear"/>
+	</xs:simpleType>
+	<xs:simpleType name="T_TypeIdentifiantContribuable">
+		<xs:annotation>
+			<xs:documentation>Type identifiant contribuable</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation>Matricule fiscal</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation>CIN</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation>Carte de sejour</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation>Autre identifiant</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_ChaineTexte250">
+		<xs:annotation>
+			<xs:documentation>Chaine de 250 caracteres au maximum</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="250"/>
+			<xs:whiteSpace value="collapse"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_Date">
+		<xs:annotation>
+			<xs:documentation>Date au format dd/mm/yyyy (Les années sont comprises entre 1900 et 2099)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:pattern value="((31/(0[13578]|1[02])/((19|20)\d{2}))|((0[1-9]|[12]\d|30)/(0[13456789]|1[012])/((19|20)\d{2}))|((0[1-9]|1\d|2[0-8])/02/((19|20)\d{2}))|(29/02/(19|20)((0[048]|[2468][048]|[13579][26]))))"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_ActeDeDepot">
+		<xs:annotation>
+			<xs:documentation>Actes de dépôts</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="1"/>
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_NatureDepot">
+		<xs:annotation>
+			<xs:documentation>Nature dépôt : Definitif ou Provisoire</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="1"/>
+			<xs:enumeration value="D"/>
+			<xs:enumeration value="P"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_ModeleLiasse">
+		<xs:annotation>
+			<xs:documentation>Modele liasse fiscale</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:enumeration value="G">
+				<xs:annotation>
+					<xs:documentation>Cas general</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="B">
+				<xs:annotation>
+					<xs:documentation>Banques</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="A">
+				<xs:annotation>
+					<xs:documentation>Assurances et réassurances</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="C">
+				<xs:annotation>
+					<xs:documentation>Associations, micro-credits</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="O">
+				<xs:annotation>
+					<xs:documentation>OPCVM</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Types de nombres (montants,  taux, ...)
+	-->
+	<xs:simpleType name="T_NombrePositif13">
+		<xs:annotation>
+			<xs:documentation>Nombre positif obligatoire de 13 caractères au maximum, sans partie decimale (0, 1, 2, ...)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:totalDigits value="13"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_NombrePositif15">
+		<xs:annotation>
+			<xs:documentation>Nombre positif obligatoire de 15 caractères au maximum, sans partie decimale (0, 1, 2, ...)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:totalDigits value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_NombreNegatif13">
+		<xs:annotation>
+			<xs:documentation>Nombre negatif obligatoire de 13 caractères au maximum, sans partie decimale (..., -2, -1, 0)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:nonPositiveInteger">
+			<xs:totalDigits value="13"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_NombreNegatif15">
+		<xs:annotation>
+			<xs:documentation>Nombre negatif obligatoire de 15 caractères au maximum, sans partie decimale (..., -2, -1, 0)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:nonPositiveInteger">
+			<xs:totalDigits value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_Nombre13">
+		<xs:annotation>
+			<xs:documentation>Nombre (Montant) obligatoire de 13 caractères au maximum, sans partie décimale et qui peut etre negatif</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="13"/>
+			<xs:fractionDigits value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_Nombre15">
+		<xs:annotation>
+			<xs:documentation>Nombre (Montant) obligatoire de 13 caractères au maximum, sans partie décimale et qui peut etre negatif</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="15"/>
+			<xs:fractionDigits value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_NombrePositifSM">
+		<xs:annotation>
+			<xs:documentation>Nombre positif obligatoire de 13 caractères au maximum, sans partie decimale (0, 1, 2, ...)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:totalDigits value="13"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_NombreNegatifSM">
+		<xs:annotation>
+			<xs:documentation>Nombre negatif obligatoire de 13 caractères au maximum, sans partie decimale (..., -2, -1, 0)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:nonPositiveInteger">
+			<xs:totalDigits value="13"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_NombreSM">
+		<xs:annotation>
+			<xs:documentation>Nombre (Montant) obligatoire de 13 caractères au maximum, sans partie décimale et qui peut etre negatif</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="13"/>
+			<xs:fractionDigits value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_NombrePositifMD">
+		<xs:annotation>
+			<xs:documentation>Nombre positif obligatoire de 13 caractères au maximum, sans partie decimale (0, 1, 2, ...)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:totalDigits value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_NombreNegatifMD">
+		<xs:annotation>
+			<xs:documentation>Nombre negatif obligatoire de 13 caractères au maximum, sans partie decimale (..., -2, -1, 0)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:nonPositiveInteger">
+			<xs:totalDigits value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_NombreMD">
+		<xs:annotation>
+			<xs:documentation>Nombre (Montant) obligatoire de 13 caractères au maximum, sans partie décimale et qui peut etre negatif</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="15"/>
+			<xs:fractionDigits value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_NombrePositifLG">
+		<xs:annotation>
+			<xs:documentation>Nombre positif obligatoire de 13 caractères au maximum, sans partie decimale (0, 1, 2, ...)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:totalDigits value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_NombreNegatifLG">
+		<xs:annotation>
+			<xs:documentation>Nombre negatif obligatoire de 13 caractères au maximum, sans partie decimale (..., -2, -1, 0)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:nonPositiveInteger">
+			<xs:totalDigits value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_NombreLG">
+		<xs:annotation>
+			<xs:documentation>Nombre (Montant) obligatoire de 13 caractères au maximum, sans partie décimale et qui peut etre negatif</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="20"/>
+			<xs:fractionDigits value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_NombrePositifXL">
+		<xs:annotation>
+			<xs:documentation>Nombre positif obligatoire de 13 caractères au maximum, sans partie decimale (0, 1, 2, ...)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:totalDigits value="25"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_NombreNegatifXL">
+		<xs:annotation>
+			<xs:documentation>Nombre negatif obligatoire de 13 caractères au maximum, sans partie decimale (..., -2, -1, 0)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:nonPositiveInteger">
+			<xs:totalDigits value="25"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_NombreXL">
+		<xs:annotation>
+			<xs:documentation>Nombre (Montant) obligatoire de 13 caractères au maximum, sans partie décimale et qui peut etre negatif</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="25"/>
+			<xs:fractionDigits value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_Taux52">
+		<xs:annotation>
+			<xs:documentation>Taux de 5 chiffres avec 2 positions décimale</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="5"/>
+			<xs:fractionDigits value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_Taux63">
+		<xs:annotation>
+			<xs:documentation>Taux de 6 chiffres avec 3 positions décimale</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="6"/>
+			<xs:fractionDigits value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_BeneficePerte">
+		<xs:annotation>
+			<xs:documentation>Nature resultat : Benefice (B) ou Perte (P)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:enumeration value="B"/>
+			<xs:enumeration value="P"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Liste des documents qui forment la liasse fiscale et dont la structure obéiit à un schema xs  -->
+	<xs:simpleType name="T_CodeTableau">
+		<xs:annotation>
+			<xs:documentation>Codification des tableaux de la liasse fiscale</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="5"/>
+			<xs:enumeration value="F6001">
+				<xs:annotation>
+					<xs:documentation>Bilan - Actifs (Cas general)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="F6002">
+				<xs:annotation>
+					<xs:documentation>Bilan - Passifs (Cas general)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="F6003">
+				<xs:annotation>
+					<xs:documentation>Etat de resultats (Cas general)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="F6004">
+				<xs:annotation>
+					<xs:documentation>Etat de flux de tresorerie (Cas general)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="F6005">
+				<xs:annotation>
+					<xs:documentation>Tableau de determination du resultat fiscal à partir du resultat comptable</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="F6006">
+				<xs:annotation>
+					<xs:documentation>Notes, principes comptables appliqués</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="F6007">
+				<xs:annotation>
+					<xs:documentation>Faits marquants de l'exercice</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="F6008">
+				<xs:annotation>
+					<xs:documentation>Schema des soldes intermediaires de gestion</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="F6009">
+				<xs:annotation>
+					<xs:documentation>Autres feuillets - Liasse - Notes aux états financiers</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="F6101"/>
+			<xs:enumeration value="F6103"/>
+			<xs:enumeration value="F6104"/>
+			<xs:enumeration value="F6105"/>
+			<xs:enumeration value="F6201"/>
+			<xs:enumeration value="F6202"/>
+			<xs:enumeration value="F6203"/>
+			<xs:enumeration value="F6204"/>
+			<xs:enumeration value="F6205"/>
+			<xs:enumeration value="F6206"/>
+			<xs:enumeration value="F6207"/>
+			<xs:enumeration value="F6301"/>
+			<xs:enumeration value="F6303"/>
+			<xs:enumeration value="F6304"/>
+			<xs:enumeration value="F6401"/>
+			<xs:enumeration value="F6403"/>
+			<xs:enumeration value="F6404"/>
+			<xs:enumeration value="G7002"/>
+			<xs:enumeration value="G7003"/>
+			<xs:enumeration value="G7004"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

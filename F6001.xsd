@@ -1,0 +1,3415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:lf="urn:liassefiscale:typescommuns"
+           xmlns:ent="urn:liassefiscale:entete"
+           targetNamespace="urn:liassefiscale:F6001"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="urn:liassefiscale:entete" schemaLocation="Entete.xsd"/>
+    <xs:import namespace="urn:liassefiscale:typescommuns" schemaLocation="Typescommuns.xsd"/>
+	<xs:element name="F6001">
+		<xs:annotation>
+			<xs:documentation>Bilan-actifs (Cas general)</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="VersionDocument" type="xs:string"/>
+				<xs:element name="Entete" type="lf:T_Entete"/>
+				<xs:element name="Details">
+					<xs:complexType>
+						<xs:all>
+							<xs:element name="F60010001">
+								<xs:annotation>
+									<xs:documentation>Actifs non courants (Brut). "F60010002" + "F60010031"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Actifs non courants (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010002">
+								<xs:annotation>
+									<xs:documentation>Actifs immobilises (Brut). "F60010003" + "F60010012" + "F60010021"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Actifs immobilises (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010003">
+								<xs:annotation>
+									<xs:documentation>Immobilisations Incorporelles (Brut). "F60010004" + "F60010005" + "F60010006" + "F60010007" + "F60010008" + "F60010009" + "F60010010" + "F60010011"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Immobilisations Incorporelles (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010004">
+								<xs:annotation>
+									<xs:documentation>Investissement recherche et developpement (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Investissement recherche et developpement (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010005">
+								<xs:annotation>
+									<xs:documentation>Concess. marque,brevet,licence,marque (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Concess. marque,brevet,licence,marque (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010006">
+								<xs:annotation>
+									<xs:documentation>Logiciels (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Logiciels (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010007">
+								<xs:annotation>
+									<xs:documentation>Fonds commercial (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Fonds commercial (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010008">
+								<xs:annotation>
+									<xs:documentation>Droit au bail (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Droit au bail (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010009">
+								<xs:annotation>
+									<xs:documentation>Autres Immobilisations Incorporelles (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres Immobilisations Incorporelles (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010010">
+								<xs:annotation>
+									<xs:documentation>Immobilisations Incorporelles en cours (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Immobilisations Incorporelles en cours (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010011">
+								<xs:annotation>
+									<xs:documentation>Av. et Ac. Verses/Cmde.Immob.Incorp. (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Av. et Ac. Verses/Cmde.Immob.Incorp. (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010012">
+								<xs:annotation>
+									<xs:documentation>Immobilisations corporelles (Brut). "F60010013" + "F60010014" + "F60010015" + "F60010016" + "F60010017" + "F60010018" + "F60010019" + "F60010020"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Immobilisations corporelles (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010013">
+								<xs:annotation>
+									<xs:documentation>Terrains (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Terrains (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010014">
+								<xs:annotation>
+									<xs:documentation>Constructions (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Constructions (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010015">
+								<xs:annotation>
+									<xs:documentation>Inst. Tech., materiel et outillages Industriels (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Inst. Tech., materiel et outillages Industriels (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010016">
+								<xs:annotation>
+									<xs:documentation>Materiel de transport  (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Materiel de transport  (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010017">
+								<xs:annotation>
+									<xs:documentation>Autres Immobilisations Corporelles  (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres Immobilisations Corporelles  (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010018">
+								<xs:annotation>
+									<xs:documentation>Immob. Corporelles en cours (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Immob. Corporelles en cours (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010019">
+								<xs:annotation>
+									<xs:documentation>Av. et Ac. Verses/Commande Immob.Corp. (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Av. et Ac. Verses/Commande Immob.Corp. (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010020">
+								<xs:annotation>
+									<xs:documentation>Immob. a statut juridique particulier (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Immob. a statut juridique particulier (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010021">
+								<xs:annotation>
+									<xs:documentation>Immobilisations Financieres (Brut). "F60010022" + "F60010023" + "F60010024" + "F60010025" + "F60010026" + "F60010027" + "F60010028" + "F60010029" + "F60010030"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Immobilisations Financieres (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010022">
+								<xs:annotation>
+									<xs:documentation>Actions (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Actions (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010023">
+								<xs:annotation>
+									<xs:documentation>Autres creances rattach. a des participat. (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres creances rattach. a des participat. (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010024">
+								<xs:annotation>
+									<xs:documentation>Creances rattach. a des stes en participat. (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Creances rattach. a des stes en participat. (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010025">
+								<xs:annotation>
+									<xs:documentation>Vers.a eff./titre de participation non liberes (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_Nombre15">
+											<xs:attribute name="Libelle" type="xs:string" default="Vers.a eff./titre de participation non liberes (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010026">
+								<xs:annotation>
+									<xs:documentation>Titres immobilises (droit de propriete) (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Titres immobilises (droit de propriete) (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010027">
+								<xs:annotation>
+									<xs:documentation>Titres immobilises (droit de creance) (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Titres immobilises (droit de creance) (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010028">
+								<xs:annotation>
+									<xs:documentation>Depots et cautionnements verses (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Depots et cautionnements verses (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010029">
+								<xs:annotation>
+									<xs:documentation>Autres creances immobilisees (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres creances immobilisees (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010030">
+								<xs:annotation>
+									<xs:documentation>Vers.a eff./Titres immobilises non liberes (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Vers.a eff./Titres immobilises non liberes (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010031">
+								<xs:annotation>
+									<xs:documentation>Autres Actifs Non Courants (Brut). "F60010032" + "F60010033" + "F60010034" + "F60010035"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres Actifs Non Courants (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010032">
+								<xs:annotation>
+									<xs:documentation>Frais preliminaires (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Frais preliminaires (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010033">
+								<xs:annotation>
+									<xs:documentation>Charges a repartir (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Charges a repartir (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010034">
+								<xs:annotation>
+									<xs:documentation>Frais d'emission et primes de Remb. Empts (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Frais d'emission et primes de Remb. Empts (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010035">
+								<xs:annotation>
+									<xs:documentation>ecarts de conversion (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="ecarts de conversion (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010036">
+								<xs:annotation>
+									<xs:documentation>Actifs courants (Brut). "F60010037" + "F60010044" + "F60010050" + "F60010059" + "F60010064" + "F60010064"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Actifs courants (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010037">
+								<xs:annotation>
+									<xs:documentation>Stocks (Brut). "F60010038" + "F60010039" + "F60010040" + "F60010041" + "F60010042" + "F60010043"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010038">
+								<xs:annotation>
+									<xs:documentation>Stocks Matieres Premieres et Fournit. Liees (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks Matieres Premieres et Fournit. Liees (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010039">
+								<xs:annotation>
+									<xs:documentation>Stocks Autres Approvisionnements (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks Autres Approvisionnements (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010040">
+								<xs:annotation>
+									<xs:documentation>Stocks En-cours de production de biens (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks En-cours de production de biens (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010041">
+								<xs:annotation>
+									<xs:documentation>Stocks En-cours de production services (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks En-cours de production services (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010042">
+								<xs:annotation>
+									<xs:documentation>Stocks de produits (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks de produits (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010043">
+								<xs:annotation>
+									<xs:documentation>Stocks de marchandises (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks de marchandises (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010044">
+								<xs:annotation>
+									<xs:documentation>Clients et Comptes Rattaches (Brut). "F60010045" + "F60010046" + "F60010047" + "F60010048" + "F60010049"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Clients et Comptes Rattaches (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010045">
+								<xs:annotation>
+									<xs:documentation>Clients  et  comptes rattaches (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Clients  et  comptes rattaches (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010046">
+								<xs:annotation>
+									<xs:documentation>Clients - effets a recevoir (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Clients - effets a recevoir (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010047">
+								<xs:annotation>
+									<xs:documentation>Clients douteux ou litigieux (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Clients douteux ou litigieux (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010048">
+								<xs:annotation>
+									<xs:documentation>Creances/travaux non encore facturables (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Creances/travaux non encore facturables (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010049">
+								<xs:annotation>
+									<xs:documentation>Clt-pdts non encore factures (pdt a recev.) (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Clt-pdts non encore factures (pdt a recev.) (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010050">
+								<xs:annotation>
+									<xs:documentation>Autres Actifs Courants (Brut). "F60010051" + "F60010052" + "F60010053" + "F60010054" + "F60010055" + "F60010056" + "F60010057" + "F60010058"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_Nombre15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres Actifs Courants (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010051">
+								<xs:annotation>
+									<xs:documentation>Fournisseurs debiteurs (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Fournisseurs debiteurs (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010052">
+								<xs:annotation>
+									<xs:documentation>Personnel et comptes rattaches (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Personnel et comptes rattaches (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010053">
+								<xs:annotation>
+									<xs:documentation>etat et collectivites publiques (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="etat et collectivites publiques (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010054">
+								<xs:annotation>
+									<xs:documentation>Societes du groupe  et  associes (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Societes du groupe  et  associes (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010055">
+								<xs:annotation>
+									<xs:documentation>Debiteurs divers et Crediteurs divers (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_Nombre15">
+											<xs:attribute name="Libelle" type="xs:string" default="Debiteurs divers et Crediteurs divers (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010056">
+								<xs:annotation>
+									<xs:documentation>Comptes transitoires ou d'attente (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Comptes transitoires ou d'attente (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010057">
+								<xs:annotation>
+									<xs:documentation>Comptes de regularisation (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Comptes de regularisation (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010058">
+								<xs:annotation>
+									<xs:documentation>Prov. / deprec. comptes debiteurs divers (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_Nombre15">
+											<xs:attribute name="Libelle" type="xs:string" default="Prov. / deprec. comptes debiteurs divers (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010059">
+								<xs:annotation>
+									<xs:documentation>Placements et Autres Actifs Financiers (Brut). "F60010060" + "F60010061" + "F60010062" + "F60010063"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Placements et Autres Actifs Financiers (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010060">
+								<xs:annotation>
+									<xs:documentation>Prets et autres creances Fin. courants (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Prets et autres creances Fin. courants (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010061">
+								<xs:annotation>
+									<xs:documentation>Placements courants (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Placements courants (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010062">
+								<xs:annotation>
+									<xs:documentation>Regies d'avances et accreditifs (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Regies d'avances et accreditifs (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010063">
+								<xs:annotation>
+									<xs:documentation>Prov. / deprec. des comptes financiers (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Prov. / deprec. des comptes financiers (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010064">
+								<xs:annotation>
+									<xs:documentation>Liquidites et equivalents de liquidites (Brut). "F60010065" + "F60010066" + "F60010067"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Liquidites et equivalents de liquidites (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010065">
+								<xs:annotation>
+									<xs:documentation>Banques, etabl. Financiers et assimiles (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Banques, etabl. Financiers et assimiles (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010066">
+								<xs:annotation>
+									<xs:documentation>Caisse (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Caisse (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010067">
+								<xs:annotation>
+									<xs:documentation>Autres Postes des Actifs du Bilan (Brut)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres Postes des Actifs du Bilan (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60010068">
+								<xs:annotation>
+									<xs:documentation>Total des actifs (Brut). "F60010001" + "F60010036" + "F60010067"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Total des actifs (Brut)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011001">
+								<xs:annotation>
+									<xs:documentation>Actifs non courants (Amortissement/Provision). "F60011002" + "F60011031"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Actifs non courants (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011002">
+								<xs:annotation>
+									<xs:documentation>Actifs immobilises (Amortissement/Provision). "F60011003" + "F60011012" + "F60011021"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Actifs immobilises (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011003">
+								<xs:annotation>
+									<xs:documentation>Immobilisations Incorporelles (Amortissement/Provision). "F60011004" + "F60011005" + "F60011006" + "F60011007" + "F60011008" + "F60011009" + "F60011010" + "F60011011"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Immobilisations Incorporelles (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011004">
+								<xs:annotation>
+									<xs:documentation>Investissement recherche et developpement (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Investissement recherche et developpement (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011005">
+								<xs:annotation>
+									<xs:documentation>Concess. marque,brevet,licence,marque (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Concess. marque,brevet,licence,marque (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011006">
+								<xs:annotation>
+									<xs:documentation>Logiciels (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Logiciels (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011007">
+								<xs:annotation>
+									<xs:documentation>Fonds commercial (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Fonds commercial (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011008">
+								<xs:annotation>
+									<xs:documentation>Droit au bail (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Droit au bail (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011009">
+								<xs:annotation>
+									<xs:documentation>Autres Immobilisations Incorporelles (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres Immobilisations Incorporelles (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011010">
+								<xs:annotation>
+									<xs:documentation>Immobilisations Incorporelles en cours (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Immobilisations Incorporelles en cours (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011011">
+								<xs:annotation>
+									<xs:documentation>Av. et Ac. Verses/Cmde.Immob.Incorp. (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Av. et Ac. Verses/Cmde.Immob.Incorp. (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011012">
+								<xs:annotation>
+									<xs:documentation>Immobilisations corporelles (Amortissement/Provision). "F60011013" + "F60011014" + "F60011015" + "F60011016" + "F60011017" + "F60011018" + "F60011019" + "F60011020"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Immobilisations corporelles (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011013">
+								<xs:annotation>
+									<xs:documentation>Terrains (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Terrains (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011014">
+								<xs:annotation>
+									<xs:documentation>Constructions (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Constructions (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011015">
+								<xs:annotation>
+									<xs:documentation>Inst. Tech., materiel et outillages Industriels (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Inst. Tech., materiel et outillages Industriels (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011016">
+								<xs:annotation>
+									<xs:documentation>Materiel de transport  (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Materiel de transport  (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011017">
+								<xs:annotation>
+									<xs:documentation>Autres Immobilisations Corporelles  (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres Immobilisations Corporelles  (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011018">
+								<xs:annotation>
+									<xs:documentation>Immob. Corporelles en cours (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Immob. Corporelles en cours (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011019">
+								<xs:annotation>
+									<xs:documentation>Av. et Ac. Verses/Commande Immob.Corp. (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Av. et Ac. Verses/Commande Immob.Corp. (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011020">
+								<xs:annotation>
+									<xs:documentation>Immob. a statut juridique particulier (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Immob. a statut juridique particulier (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011021">
+								<xs:annotation>
+									<xs:documentation>Immobilisations Financieres (Amortissement/Provision). "F60011022" + "F60011023" + "F60011024" + "F60011025" + "F60011026" + "F60011027" + "F60011028" + "F60011029" + "F60011030"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Immobilisations Financieres (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011022">
+								<xs:annotation>
+									<xs:documentation>Actions (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Actions (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011023">
+								<xs:annotation>
+									<xs:documentation>Autres creances rattach. a des participat. (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres creances rattach. a des participat. (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011024">
+								<xs:annotation>
+									<xs:documentation>Creances rattach. a des stes en participat. (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Creances rattach. a des stes en participat. (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011025">
+								<xs:annotation>
+									<xs:documentation>Vers.a eff./titre de participation non liberes (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Vers.a eff./titre de participation non liberes (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011026">
+								<xs:annotation>
+									<xs:documentation>Titres immobilises (droit de propriete) (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Titres immobilises (droit de propriete) (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011027">
+								<xs:annotation>
+									<xs:documentation>Titres immobilises (droit de creance) (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Titres immobilises (droit de creance) (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011028">
+								<xs:annotation>
+									<xs:documentation>Depots et cautionnements verses (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Depots et cautionnements verses (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011029">
+								<xs:annotation>
+									<xs:documentation>Autres creances immobilisees (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres creances immobilisees (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011030">
+								<xs:annotation>
+									<xs:documentation>Vers.a eff./Titres immobilises non liberes (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Vers.a eff./Titres immobilises non liberes (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011031">
+								<xs:annotation>
+									<xs:documentation>Autres Actifs Non Courants (Amortissement/Provision). "F60011032" + "F60011033" + "F60011034" + "F60011035"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres Actifs Non Courants (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011032">
+								<xs:annotation>
+									<xs:documentation>Frais preliminaires (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Frais preliminaires (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011033">
+								<xs:annotation>
+									<xs:documentation>Charges a repartir (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Charges a repartir (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011034">
+								<xs:annotation>
+									<xs:documentation>Frais d'emission et primes de Remb. Empts (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Frais d'emission et primes de Remb. Empts (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011035">
+								<xs:annotation>
+									<xs:documentation>ecarts de conversion (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="ecarts de conversion (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011036">
+								<xs:annotation>
+									<xs:documentation>Actifs courants (Amortissement/Provision). "F60011037" + "F60011044" + "F60011050" + "F60011059" + "F60011064"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Actifs courants (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011037">
+								<xs:annotation>
+									<xs:documentation>Stocks (Amortissement/Provision). "F60011038" + "F60011039" + "F60011040" + "F60011041" + "F60011042" + "F60011043"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011038">
+								<xs:annotation>
+									<xs:documentation>Stocks Matieres Premieres et Fournit. Liees (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks Matieres Premieres et Fournit. Liees (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011039">
+								<xs:annotation>
+									<xs:documentation>Stocks Autres Approvisionnements (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks Autres Approvisionnements (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011040">
+								<xs:annotation>
+									<xs:documentation>Stocks En-cours de production de biens (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks En-cours de production de biens (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011041">
+								<xs:annotation>
+									<xs:documentation>Stocks En-cours de production services (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks En-cours de production services (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011042">
+								<xs:annotation>
+									<xs:documentation>Stocks de produits (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks de produits (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011043">
+								<xs:annotation>
+									<xs:documentation>Stocks de marchandises (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks de marchandises (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011044">
+								<xs:annotation>
+									<xs:documentation>Clients et Comptes Rattaches (Amortissement/Provision). "F60011045" + "F60011046" + "F60011047" + "F60011048" + "F60011049"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Clients et Comptes Rattaches (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011045">
+								<xs:annotation>
+									<xs:documentation>Clients  et  comptes rattaches (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Clients  et  comptes rattaches (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011046">
+								<xs:annotation>
+									<xs:documentation>Clients - effets a recevoir (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Clients - effets a recevoir (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011047">
+								<xs:annotation>
+									<xs:documentation>Clients douteux ou litigieux (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Clients douteux ou litigieux (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011048">
+								<xs:annotation>
+									<xs:documentation>Creances/travaux non encore facturables (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Creances/travaux non encore facturables (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011049">
+								<xs:annotation>
+									<xs:documentation>Clt-pdts non encore factures (pdt a recev.) (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Clt-pdts non encore factures (pdt a recev.) (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011050">
+								<xs:annotation>
+									<xs:documentation>Autres Actifs Courants (Amortissement/Provision). "F60011051" + "F60011052" + "F60011053" + "F60011054" + "F60011055" + "F60011056" + "F60011057" + "F60011058"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_Nombre15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres Actifs Courants (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011051">
+								<xs:annotation>
+									<xs:documentation>Fournisseurs debiteurs (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Fournisseurs debiteurs (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011052">
+								<xs:annotation>
+									<xs:documentation>Personnel et comptes rattaches (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Personnel et comptes rattaches (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011053">
+								<xs:annotation>
+									<xs:documentation>etat et collectivites publiques (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="etat et collectivites publiques (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011054">
+								<xs:annotation>
+									<xs:documentation>Societes du groupe  et  associes (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Societes du groupe  et  associes (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011055">
+								<xs:annotation>
+									<xs:documentation>Debiteurs divers et Crediteurs divers (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_Nombre15">
+											<xs:attribute name="Libelle" type="xs:string" default="Debiteurs divers et Crediteurs divers (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011056">
+								<xs:annotation>
+									<xs:documentation>Comptes transitoires ou d'attente (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Comptes transitoires ou d'attente (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011057">
+								<xs:annotation>
+									<xs:documentation>Comptes de regularisation (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Comptes de regularisation (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011058">
+								<xs:annotation>
+									<xs:documentation>Prov. / deprec. comptes debiteurs divers (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_Nombre15">
+											<xs:attribute name="Libelle" type="xs:string" default="Prov. / deprec. comptes debiteurs divers (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011059">
+								<xs:annotation>
+									<xs:documentation>Placements et Autres Actifs Financiers (Amortissement/Provision). "F60011060" + "F60011061" + "F60011062" + "F60011063"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Placements et Autres Actifs Financiers (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011060">
+								<xs:annotation>
+									<xs:documentation>Prets et autres creances Fin. courants (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Prets et autres creances Fin. courants (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011061">
+								<xs:annotation>
+									<xs:documentation>Placements courants (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Placements courants (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011062">
+								<xs:annotation>
+									<xs:documentation>Regies d'avances et accreditifs (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Regies d'avances et accreditifs (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011063">
+								<xs:annotation>
+									<xs:documentation>Prov. / deprec. des comptes financiers (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Prov. / deprec. des comptes financiers (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011064">
+								<xs:annotation>
+									<xs:documentation>Liquidites et equivalents de liquidites (Amortissement/Provision). "F60011065" + "F60011066"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Liquidites et equivalents de liquidites (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011065">
+								<xs:annotation>
+									<xs:documentation>Banques, etabl. Financiers et assimiles (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Banques, etabl. Financiers et assimiles (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011066">
+								<xs:annotation>
+									<xs:documentation>Caisse (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Caisse (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011067">
+								<xs:annotation>
+									<xs:documentation>Autres Postes des Actifs du Bilan (Amortissement/Provision)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres Postes des Actifs du Bilan (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60011068">
+								<xs:annotation>
+									<xs:documentation>Total des actifs (Amortissement/Provision). "F60011001" + "F60011036" + "F60011067"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Total des actifs (Amortissement/Provision)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012001">
+								<xs:annotation>
+									<xs:documentation>Actifs non courants (Net). "F60012002" + "F60012031"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Actifs non courants (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012002">
+								<xs:annotation>
+									<xs:documentation>Actifs immobilises (Net). "F60012003" + "F60012012" + "F60012021"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Actifs immobilises (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012003">
+								<xs:annotation>
+									<xs:documentation>Immobilisations Incorporelles (Net). "F60012004" + "F60012005" + "F60012006" + "F60012007" + "F60012008" + "F60012009" + "F60012010" + "F60012011"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Immobilisations Incorporelles (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012004">
+								<xs:annotation>
+									<xs:documentation>Investissement recherche et developpement (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Investissement recherche et developpement (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012005">
+								<xs:annotation>
+									<xs:documentation>Concess. marque,brevet,licence,marque (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Concess. marque,brevet,licence,marque (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012006">
+								<xs:annotation>
+									<xs:documentation>Logiciels (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Logiciels (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012007">
+								<xs:annotation>
+									<xs:documentation>Fonds commercial (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Fonds commercial (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012008">
+								<xs:annotation>
+									<xs:documentation>Droit au bail (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Droit au bail (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012009">
+								<xs:annotation>
+									<xs:documentation>Autres Immobilisations Incorporelles (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres Immobilisations Incorporelles (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012010">
+								<xs:annotation>
+									<xs:documentation>Immobilisations Incorporelles en cours (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Immobilisations Incorporelles en cours (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012011">
+								<xs:annotation>
+									<xs:documentation>Av. et Ac. Verses/Cmde.Immob.Incorp. (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Av. et Ac. Verses/Cmde.Immob.Incorp. (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012012">
+								<xs:annotation>
+									<xs:documentation>Immobilisations corporelles (Net). "F60012013" + "F60012014" + "F60012015" + "F60012016" + "F60012017" + "F60012018" + "F60012019" + "F60012020"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Immobilisations corporelles (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012013">
+								<xs:annotation>
+									<xs:documentation>Terrains (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Terrains (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012014">
+								<xs:annotation>
+									<xs:documentation>Constructions (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Constructions (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012015">
+								<xs:annotation>
+									<xs:documentation>Inst. Tech., materiel et outillages Industriels (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Inst. Tech., materiel et outillages Industriels (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012016">
+								<xs:annotation>
+									<xs:documentation>Materiel de transport  (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Materiel de transport  (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012017">
+								<xs:annotation>
+									<xs:documentation>Autres Immobilisations Corporelles  (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres Immobilisations Corporelles  (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012018">
+								<xs:annotation>
+									<xs:documentation>Immob. Corporelles en cours (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Immob. Corporelles en cours (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012019">
+								<xs:annotation>
+									<xs:documentation>Av. et Ac. Verses/Commande Immob.Corp. (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Av. et Ac. Verses/Commande Immob.Corp. (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012020">
+								<xs:annotation>
+									<xs:documentation>Immob. a statut juridique particulier (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Immob. a statut juridique particulier (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012021">
+								<xs:annotation>
+									<xs:documentation>Immobilisations Financieres (Net). "F60012022" + "F60012023" + "F60012024" + "F60012025" + "F60012026" + "F60012027" + "F60012028" + "F60012029" + "F60012030"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Immobilisations Financieres (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012022">
+								<xs:annotation>
+									<xs:documentation>Actions (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Actions (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012023">
+								<xs:annotation>
+									<xs:documentation>Autres creances rattach. a des participat. (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres creances rattach. a des participat. (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012024">
+								<xs:annotation>
+									<xs:documentation>Creances rattach. a des stes en participat. (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Creances rattach. a des stes en participat. (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012025">
+								<xs:annotation>
+									<xs:documentation>Vers.a eff./titre de participation non liberes (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_Nombre15">
+											<xs:attribute name="Libelle" type="xs:string" default="Vers.a eff./titre de participation non liberes (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012026">
+								<xs:annotation>
+									<xs:documentation>Titres immobilises (droit de propriete) (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Titres immobilises (droit de propriete) (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012027">
+								<xs:annotation>
+									<xs:documentation>Titres immobilises (droit de creance) (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Titres immobilises (droit de creance) (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012028">
+								<xs:annotation>
+									<xs:documentation>Depots et cautionnements verses (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Depots et cautionnements verses (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012029">
+								<xs:annotation>
+									<xs:documentation>Autres creances immobilisees (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres creances immobilisees (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012030">
+								<xs:annotation>
+									<xs:documentation>Vers.a eff./Titres immobilises non liberes (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Vers.a eff./Titres immobilises non liberes (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012031">
+								<xs:annotation>
+									<xs:documentation>Autres Actifs Non Courants (Net). "F60012032" + "F60012033" + "F60012034" + "F60012035"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres Actifs Non Courants (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012032">
+								<xs:annotation>
+									<xs:documentation>Frais preliminaires (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Frais preliminaires (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012033">
+								<xs:annotation>
+									<xs:documentation>Charges a repartir (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Charges a repartir (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012034">
+								<xs:annotation>
+									<xs:documentation>Frais d'emission et primes de Remb. Empts (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Frais d'emission et primes de Remb. Empts (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012035">
+								<xs:annotation>
+									<xs:documentation>ecarts de conversion (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="ecarts de conversion (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012036">
+								<xs:annotation>
+									<xs:documentation>Actifs courants (Net). "F60012037" + "F60012044" + "F60012050" + "F60012059" + "F60012064"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Actifs courants (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012037">
+								<xs:annotation>
+									<xs:documentation>Stocks (Net). "F60012038" + "F60012039" + "F60012040" + "F60012041" + "F60012042" + "F60012043"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012038">
+								<xs:annotation>
+									<xs:documentation>Stocks Matieres Premieres et Fournit. Liees (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks Matieres Premieres et Fournit. Liees (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012039">
+								<xs:annotation>
+									<xs:documentation>Stocks Autres Approvisionnements (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks Autres Approvisionnements (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012040">
+								<xs:annotation>
+									<xs:documentation>Stocks En-cours de production de biens (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks En-cours de production de biens (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012041">
+								<xs:annotation>
+									<xs:documentation>Stocks En-cours de production services (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks En-cours de production services (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012042">
+								<xs:annotation>
+									<xs:documentation>Stocks de produits (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks de produits (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012043">
+								<xs:annotation>
+									<xs:documentation>Stocks de marchandises (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks de marchandises (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012044">
+								<xs:annotation>
+									<xs:documentation>Clients et Comptes Rattaches (Net). "F60012045" + "F60012046" + "F60012047" + "F60012048" + "F60012049"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Clients et Comptes Rattaches (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012045">
+								<xs:annotation>
+									<xs:documentation>Clients  et  comptes rattaches (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Clients  et  comptes rattaches (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012046">
+								<xs:annotation>
+									<xs:documentation>Clients - effets a recevoir (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Clients - effets a recevoir (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012047">
+								<xs:annotation>
+									<xs:documentation>Clients douteux ou litigieux (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Clients douteux ou litigieux (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012048">
+								<xs:annotation>
+									<xs:documentation>Creances/travaux non encore facturables (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Creances/travaux non encore facturables (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012049">
+								<xs:annotation>
+									<xs:documentation>Clt-pdts non encore factures (pdt a recev.) (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Clt-pdts non encore factures (pdt a recev.) (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012050">
+								<xs:annotation>
+									<xs:documentation>Autres Actifs Courants (Net). "F60012051" + "F60012052" + "F60012053" + "F60012054" + "F60012055" + "F60012056" + "F60012057" + "F60012058"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_Nombre15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres Actifs Courants (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012051">
+								<xs:annotation>
+									<xs:documentation>Fournisseurs debiteurs (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Fournisseurs debiteurs (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012052">
+								<xs:annotation>
+									<xs:documentation>Personnel et comptes rattaches (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Personnel et comptes rattaches (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012053">
+								<xs:annotation>
+									<xs:documentation>etat et collectivites publiques (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="etat et collectivites publiques (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012054">
+								<xs:annotation>
+									<xs:documentation>Societes du groupe  et  associes (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Societes du groupe  et  associes (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012055">
+								<xs:annotation>
+									<xs:documentation>Debiteurs divers et Crediteurs divers (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_Nombre15">
+											<xs:attribute name="Libelle" type="xs:string" default="Debiteurs divers et Crediteurs divers (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012056">
+								<xs:annotation>
+									<xs:documentation>Comptes transitoires ou d'attente (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Comptes transitoires ou d'attente (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012057">
+								<xs:annotation>
+									<xs:documentation>Comptes de regularisation (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Comptes de regularisation (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012058">
+								<xs:annotation>
+									<xs:documentation>Prov. / deprec. comptes debiteurs divers (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_Nombre15">
+											<xs:attribute name="Libelle" type="xs:string" default="Prov. / deprec. comptes debiteurs divers (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012059">
+								<xs:annotation>
+									<xs:documentation>Placements et Autres Actifs Financiers (Net). "F60012060" + "F60012061" + "F60012062" + "F60012063"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Placements et Autres Actifs Financiers (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012060">
+								<xs:annotation>
+									<xs:documentation>Prets et autres creances Fin. courants (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Prets et autres creances Fin. courants (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012061">
+								<xs:annotation>
+									<xs:documentation>Placements courants (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Placements courants (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012062">
+								<xs:annotation>
+									<xs:documentation>Regies d'avances et accreditifs (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Regies d'avances et accreditifs (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012063">
+								<xs:annotation>
+									<xs:documentation>Prov. / deprec. des comptes financiers (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Prov. / deprec. des comptes financiers (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012064">
+								<xs:annotation>
+									<xs:documentation>Liquidites et equivalents de liquidites (Net). "F60012065" + "F60012066"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Liquidites et equivalents de liquidites (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012065">
+								<xs:annotation>
+									<xs:documentation>Banques, etabl. Financiers et assimiles (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Banques, etabl. Financiers et assimiles (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012066">
+								<xs:annotation>
+									<xs:documentation>Caisse (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Caisse (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012067">
+								<xs:annotation>
+									<xs:documentation>Autres Postes des Actifs du Bilan (Net)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres Postes des Actifs du Bilan (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60012068">
+								<xs:annotation>
+									<xs:documentation>Total des actifs (Net). "F60012001" + "F60012036" + "F60012067"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Total des actifs (Net)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013001">
+								<xs:annotation>
+									<xs:documentation>Actifs non courants (Net N-1). "F60013002" + "F60013031"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Actifs non courants (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013002">
+								<xs:annotation>
+									<xs:documentation>Actifs immobilises (Net N-1). "F60013003" + "F60013012" + "F60013021"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Actifs immobilises (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013003">
+								<xs:annotation>
+									<xs:documentation>Immobilisations Incorporelles (Net N-1). "F60013004" + "F60013005" + "F60013006" + "F60013007" + "F60013008" + "F60013009" + "F60013010" + "F60013011"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Immobilisations Incorporelles (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013004">
+								<xs:annotation>
+									<xs:documentation>Investissement recherche et developpement (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Investissement recherche et developpement (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013005">
+								<xs:annotation>
+									<xs:documentation>Concess. marque,brevet,licence,marque (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Concess. marque,brevet,licence,marque (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013006">
+								<xs:annotation>
+									<xs:documentation>Logiciels (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Logiciels (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013007">
+								<xs:annotation>
+									<xs:documentation>Fonds commercial (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Fonds commercial (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013008">
+								<xs:annotation>
+									<xs:documentation>Droit au bail (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Droit au bail (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013009">
+								<xs:annotation>
+									<xs:documentation>Autres Immobilisations Incorporelles (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres Immobilisations Incorporelles (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013010">
+								<xs:annotation>
+									<xs:documentation>Immobilisations Incorporelles en cours (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Immobilisations Incorporelles en cours (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013011">
+								<xs:annotation>
+									<xs:documentation>Av. et Ac. Verses/Cmde.Immob.Incorp. (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Av. et Ac. Verses/Cmde.Immob.Incorp. (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013012">
+								<xs:annotation>
+									<xs:documentation>Immobilisations corporelles (Net N-1). "F60013013" + "F60013014" + "F60013015" + "F60013016" + "F60013017" + "F60013018" + "F60013019" + "F60013020"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Immobilisations corporelles (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013013">
+								<xs:annotation>
+									<xs:documentation>Terrains (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Terrains (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013014">
+								<xs:annotation>
+									<xs:documentation>Constructions (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Constructions (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013015">
+								<xs:annotation>
+									<xs:documentation>Inst. Tech., materiel et outillages Industriels (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Inst. Tech., materiel et outillages Industriels (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013016">
+								<xs:annotation>
+									<xs:documentation>Materiel de transport  (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Materiel de transport  (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013017">
+								<xs:annotation>
+									<xs:documentation>Autres Immobilisations Corporelles  (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres Immobilisations Corporelles  (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013018">
+								<xs:annotation>
+									<xs:documentation>Immob. Corporelles en cours (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Immob. Corporelles en cours (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013019">
+								<xs:annotation>
+									<xs:documentation>Av. et Ac. Verses/Commande Immob.Corp. (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Av. et Ac. Verses/Commande Immob.Corp. (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013020">
+								<xs:annotation>
+									<xs:documentation>Immob. a statut juridique particulier (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Immob. a statut juridique particulier (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013021">
+								<xs:annotation>
+									<xs:documentation>Immobilisations Financieres (Net N-1). "F60013022" + "F60013023" + "F60013024" + "F60013025" + "F60013026" + "F60013027" + "F60013028" + "F60013029" + "F60013030"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Immobilisations Financieres (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013022">
+								<xs:annotation>
+									<xs:documentation>Actions (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Actions (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013023">
+								<xs:annotation>
+									<xs:documentation>Autres creances rattach. a des participat. (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres creances rattach. a des participat. (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013024">
+								<xs:annotation>
+									<xs:documentation>Creances rattach. a des stes en participat. (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Creances rattach. a des stes en participat. (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013025">
+								<xs:annotation>
+									<xs:documentation>Vers.a eff./titre de participation non liberes (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_Nombre15">
+											<xs:attribute name="Libelle" type="xs:string" default="Vers.a eff./titre de participation non liberes (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013026">
+								<xs:annotation>
+									<xs:documentation>Titres immobilises (droit de propriete) (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Titres immobilises (droit de propriete) (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013027">
+								<xs:annotation>
+									<xs:documentation>Titres immobilises (droit de creance) (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Titres immobilises (droit de creance) (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013028">
+								<xs:annotation>
+									<xs:documentation>Depots et cautionnements verses (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Depots et cautionnements verses (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013029">
+								<xs:annotation>
+									<xs:documentation>Autres creances immobilisees (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres creances immobilisees (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013030">
+								<xs:annotation>
+									<xs:documentation>Vers.a eff./Titres immobilises non liberes (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Vers.a eff./Titres immobilises non liberes (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013031">
+								<xs:annotation>
+									<xs:documentation>Autres Actifs Non Courants (Net N-1). "F60013032" + "F60013033" + "F60013034" + "F60013035"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres Actifs Non Courants (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013032">
+								<xs:annotation>
+									<xs:documentation>Frais preliminaires (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Frais preliminaires (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013033">
+								<xs:annotation>
+									<xs:documentation>Charges a repartir (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Charges a repartir (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013034">
+								<xs:annotation>
+									<xs:documentation>Frais d'emission et primes de Remb. Empts (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Frais d'emission et primes de Remb. Empts (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013035">
+								<xs:annotation>
+									<xs:documentation>ecarts de conversion (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="ecarts de conversion (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013036">
+								<xs:annotation>
+									<xs:documentation>Actifs courants (Net N-1). "F60013037" + "F60013044" + "F60013050" + "F60013059" + "F60013064"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Actifs courants (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013037">
+								<xs:annotation>
+									<xs:documentation>Stocks (Net N-1). "F60013038" + "F60013039" + "F60013040" + "F60013041" + "F60013042" + "F60013043"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013038">
+								<xs:annotation>
+									<xs:documentation>Stocks Matieres Premieres et Fournit. Liees (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks Matieres Premieres et Fournit. Liees (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013039">
+								<xs:annotation>
+									<xs:documentation>Stocks Autres Approvisionnements (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks Autres Approvisionnements (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013040">
+								<xs:annotation>
+									<xs:documentation>Stocks En-cours de production de biens (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks En-cours de production de biens (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013041">
+								<xs:annotation>
+									<xs:documentation>Stocks En-cours de production services (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks En-cours de production services (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013042">
+								<xs:annotation>
+									<xs:documentation>Stocks de produits (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks de produits (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013043">
+								<xs:annotation>
+									<xs:documentation>Stocks de marchandises (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Stocks de marchandises (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013044">
+								<xs:annotation>
+									<xs:documentation>Clients et Comptes Rattaches (Net N-1). "F60013045" + "F60013046" + "F60013047" + "F60013048" + "F60013049"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Clients et Comptes Rattaches (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013045">
+								<xs:annotation>
+									<xs:documentation>Clients  et  comptes rattaches (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Clients  et  comptes rattaches (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013046">
+								<xs:annotation>
+									<xs:documentation>Clients - effets a recevoir (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Clients - effets a recevoir (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013047">
+								<xs:annotation>
+									<xs:documentation>Clients douteux ou litigieux (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Clients douteux ou litigieux (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013048">
+								<xs:annotation>
+									<xs:documentation>Creances/travaux non encore facturables (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Creances/travaux non encore facturables (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013049">
+								<xs:annotation>
+									<xs:documentation>Clt-pdts non encore factures (pdt a recev.) (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Clt-pdts non encore factures (pdt a recev.) (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013050">
+								<xs:annotation>
+									<xs:documentation>Autres Actifs Courants (Net N-1). "F60013051" + "F60013052" + "F60013053" + "F60013054" + "F60013055" + "F60013056" + "F60013057" + "F60013058"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_Nombre15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres Actifs Courants (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013051">
+								<xs:annotation>
+									<xs:documentation>Fournisseurs debiteurs (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Fournisseurs debiteurs (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013052">
+								<xs:annotation>
+									<xs:documentation>Personnel et comptes rattaches (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Personnel et comptes rattaches (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013053">
+								<xs:annotation>
+									<xs:documentation>etat et collectivites publiques (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="etat et collectivites publiques (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013054">
+								<xs:annotation>
+									<xs:documentation>Societes du groupe  et  associes (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Societes du groupe  et  associes (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013055">
+								<xs:annotation>
+									<xs:documentation>Debiteurs divers et Crediteurs divers (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_Nombre15">
+											<xs:attribute name="Libelle" type="xs:string" default="Debiteurs divers et Crediteurs divers (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013056">
+								<xs:annotation>
+									<xs:documentation>Comptes transitoires ou d'attente (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Comptes transitoires ou d'attente (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013057">
+								<xs:annotation>
+									<xs:documentation>Comptes de regularisation (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Comptes de regularisation (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013058">
+								<xs:annotation>
+									<xs:documentation>Prov. / deprec. comptes debiteurs divers (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_Nombre15">
+											<xs:attribute name="Libelle" type="xs:string" default="Prov. / deprec. comptes debiteurs divers (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013059">
+								<xs:annotation>
+									<xs:documentation>Placements et Autres Actifs Financiers (Net N-1). "F60013060" + "F60013061" + "F60013062" + "F60013063"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Placements et Autres Actifs Financiers (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013060">
+								<xs:annotation>
+									<xs:documentation>Prets et autres creances Fin. courants (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Prets et autres creances Fin. courants (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013061">
+								<xs:annotation>
+									<xs:documentation>Placements courants (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Placements courants (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013062">
+								<xs:annotation>
+									<xs:documentation>Regies d'avances et accreditifs (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Regies d'avances et accreditifs (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013063">
+								<xs:annotation>
+									<xs:documentation>Prov. / deprec. des comptes financiers (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Prov. / deprec. des comptes financiers (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013064">
+								<xs:annotation>
+									<xs:documentation>Liquidites et equivalents de liquidites (Net N-1). "F60013065" + "F60013066"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Liquidites et equivalents de liquidites (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013065">
+								<xs:annotation>
+									<xs:documentation>Banques, etabl. Financiers et assimiles (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Banques, etabl. Financiers et assimiles (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013066">
+								<xs:annotation>
+									<xs:documentation>Caisse (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Caisse (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013067">
+								<xs:annotation>
+									<xs:documentation>Autres Postes des Actifs du Bilan (Net N-1)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Autres Postes des Actifs du Bilan (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="F60013068">
+								<xs:annotation>
+									<xs:documentation>Total des actifs (Net N-1). "F60013001" + "F60013036" + "F60013067"</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="lf:T_NombrePositif15">
+											<xs:attribute name="Libelle" type="xs:string" default="Total des actifs (Net N-1)"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:all>
+						<xs:assert test="lf:F60010001 = sum( ((lf:F60010002) , (lf:F60010031)))"/>
+						<xs:assert test="lf:F60010002 = sum( ((lf:F60010003) , (lf:F60010012) , (lf:F60010021)))"/>
+						<xs:assert test="lf:F60010003 = sum( ((lf:F60010004) , (lf:F60010005) , (lf:F60010006) , (lf:F60010007) , (lf:F60010008) , (lf:F60010009) , (lf:F60010010) , (lf:F60010011)))"/>
+						<xs:assert test="lf:F60010012 = sum( ((lf:F60010013) , (lf:F60010014) , (lf:F60010015) , (lf:F60010016) , (lf:F60010017) , (lf:F60010018) , (lf:F60010019) , (lf:F60010020)))"/>
+						<xs:assert test="lf:F60010021 = sum( ((lf:F60010022) , (lf:F60010023) , (lf:F60010024) , (lf:F60010025) , (lf:F60010026) , (lf:F60010027) , (lf:F60010028) , (lf:F60010029) , (lf:F60010030)))"/>
+						<xs:assert test="lf:F60010031 = sum( ((lf:F60010032) , (lf:F60010033) , (lf:F60010034) , (lf:F60010035)))"/>
+						<xs:assert test="lf:F60010036 = sum( ((lf:F60010037) , (lf:F60010044) , (lf:F60010050) , (lf:F60010059) , (lf:F60010064)))"/>
+						<xs:assert test="lf:F60010037 = sum( ((lf:F60010038) , (lf:F60010039) , (lf:F60010040) , (lf:F60010041) , (lf:F60010042) , (lf:F60010043)))"/>
+						<xs:assert test="lf:F60010044 = sum( ((lf:F60010045) , (lf:F60010046) , (lf:F60010047) , (lf:F60010048) , (lf:F60010049)))"/>
+						<xs:assert test="lf:F60010050 = sum( ((lf:F60010051) , (lf:F60010052) , (lf:F60010053) , (lf:F60010054) , (lf:F60010055) , (lf:F60010056) , (lf:F60010057) , (lf:F60010058)))"/>
+						<xs:assert test="lf:F60010059 = sum( ((lf:F60010060) , (lf:F60010061) , (lf:F60010062) , (lf:F60010063)))"/>
+						<xs:assert test="lf:F60010064 = sum( ((lf:F60010065) , (lf:F60010066)))"/>
+						<xs:assert test="lf:F60010068 = sum( ((lf:F60010001) , (lf:F60010036) , (lf:F60010067)))"/>
+						<xs:assert test="lf:F60011001 = sum( ((lf:F60011002) , (lf:F60011031)))"/>
+						<xs:assert test="lf:F60011002 = sum( ((lf:F60011003) , (lf:F60011012) , (lf:F60011021)))"/>
+						<xs:assert test="lf:F60011003 = sum( ((lf:F60011004) , (lf:F60011005) , (lf:F60011006) , (lf:F60011007) , (lf:F60011008) , (lf:F60011009) , (lf:F60011010) , (lf:F60011011)))"/>
+						<xs:assert test="lf:F60011012 = sum( ((lf:F60011013) , (lf:F60011014) , (lf:F60011015) , (lf:F60011016) , (lf:F60011017) , (lf:F60011018) , (lf:F60011019) , (lf:F60011020)))"/>
+						<xs:assert test="lf:F60011021 = sum( ((lf:F60011022) , (lf:F60011023) , (lf:F60011024) , (lf:F60011025) , (lf:F60011026) , (lf:F60011027) , (lf:F60011028) , (lf:F60011029) , (lf:F60011030)))"/>
+						<xs:assert test="lf:F60011031 = sum( ((lf:F60011032) , (lf:F60011033) , (lf:F60011034) , (lf:F60011035)))"/>
+						<xs:assert test="lf:F60011036 = sum( ((lf:F60011037) , (lf:F60011044) , (lf:F60011050) , (lf:F60011059) , (lf:F60011064)))"/>
+						<xs:assert test="lf:F60011037 = sum( ((lf:F60011038) , (lf:F60011039) , (lf:F60011040) , (lf:F60011041) , (lf:F60011042) , (lf:F60011043)))"/>
+						<xs:assert test="lf:F60011044 = sum( ((lf:F60011045) , (lf:F60011046) , (lf:F60011047) , (lf:F60011048) , (lf:F60011049)))"/>
+						<xs:assert test="lf:F60011050 = sum( ((lf:F60011051) , (lf:F60011052) , (lf:F60011053) , (lf:F60011054) , (lf:F60011055) , (lf:F60011056) , (lf:F60011057) , (lf:F60011058)))"/>
+						<xs:assert test="lf:F60011059 = sum( ((lf:F60011060) , (lf:F60011061) , (lf:F60011062) , (lf:F60011063)))"/>
+						<xs:assert test="lf:F60011064 = sum( ((lf:F60011065) , (lf:F60011066)))"/>
+						<xs:assert test="lf:F60011068 = sum( ((lf:F60011001) , (lf:F60011036) , (lf:F60011067)))"/>
+						<xs:assert test="lf:F60012001 = sum( ((lf:F60012002) , (lf:F60012031)))"/>
+						<xs:assert test="lf:F60012002 = sum( ((lf:F60012003) , (lf:F60012012) , (lf:F60012021)))"/>
+						<xs:assert test="lf:F60012003 = sum( ((lf:F60012004) , (lf:F60012005) , (lf:F60012006) , (lf:F60012007) , (lf:F60012008) , (lf:F60012009) , (lf:F60012010) , (lf:F60012011)))"/>
+						<xs:assert test="lf:F60012012 = sum( ((lf:F60012013) , (lf:F60012014) , (lf:F60012015) , (lf:F60012016) , (lf:F60012017) , (lf:F60012018) , (lf:F60012019) , (lf:F60012020)))"/>
+						<xs:assert test="lf:F60012021 = sum( ((lf:F60012022) , (lf:F60012023) , (lf:F60012024) , (lf:F60012025) , (lf:F60012026) , (lf:F60012027) , (lf:F60012028) , (lf:F60012029) , (lf:F60012030)))"/>
+						<xs:assert test="lf:F60012031 = sum( ((lf:F60012032) , (lf:F60012033) , (lf:F60012034) , (lf:F60012035)))"/>
+						<xs:assert test="lf:F60012036 = sum( ((lf:F60012037) , (lf:F60012044) , (lf:F60012050) , (lf:F60012059) , (lf:F60012064)))"/>
+						<xs:assert test="lf:F60012037 = sum( ((lf:F60012038) , (lf:F60012039) , (lf:F60012040) , (lf:F60012041) , (lf:F60012042) , (lf:F60012043)))"/>
+						<xs:assert test="lf:F60012044 = sum( ((lf:F60012045) , (lf:F60012046) , (lf:F60012047) , (lf:F60012048) , (lf:F60012049)))"/>
+						<xs:assert test="lf:F60012050 = sum( ((lf:F60012051) , (lf:F60012052) , (lf:F60012053) , (lf:F60012054) , (lf:F60012055) , (lf:F60012056) , (lf:F60012057) , (lf:F60012058)))"/>
+						<xs:assert test="lf:F60012059 = sum( ((lf:F60012060) , (lf:F60012061) , (lf:F60012062) , (lf:F60012063)))"/>
+						<xs:assert test="lf:F60012064 = sum( ((lf:F60012065) , (lf:F60012066)))"/>
+						<xs:assert test="lf:F60012068 = sum( ((lf:F60012001) , (lf:F60012036) , (lf:F60012067)))"/>
+						<xs:assert test="lf:F60013001 = sum( ((lf:F60013002) , (lf:F60013031)))"/>
+						<xs:assert test="lf:F60013002 = sum( ((lf:F60013003) , (lf:F60013012) , (lf:F60013021)))"/>
+						<xs:assert test="lf:F60013003 = sum( ((lf:F60013004) , (lf:F60013005) , (lf:F60013006) , (lf:F60013007) , (lf:F60013008) , (lf:F60013009) , (lf:F60013010) , (lf:F60013011)))"/>
+						<xs:assert test="lf:F60013012 = sum( ((lf:F60013013) , (lf:F60013014) , (lf:F60013015) , (lf:F60013016) , (lf:F60013017) , (lf:F60013018) , (lf:F60013019) , (lf:F60013020)))"/>
+						<xs:assert test="lf:F60013021 = sum( ((lf:F60013022) , (lf:F60013023) , (lf:F60013024) , (lf:F60013025) , (lf:F60013026) , (lf:F60013027) , (lf:F60013028) , (lf:F60013029) , (lf:F60013030)))"/>
+						<xs:assert test="lf:F60013031 = sum( ((lf:F60013032) , (lf:F60013033) , (lf:F60013034) , (lf:F60013035)))"/>
+						<xs:assert test="lf:F60013036 = sum( ((lf:F60013037) , (lf:F60013044) , (lf:F60013050) , (lf:F60013059) , (lf:F60013064)))"/>
+						<xs:assert test="lf:F60013037 = sum( ((lf:F60013038) , (lf:F60013039) , (lf:F60013040) , (lf:F60013041) , (lf:F60013042) , (lf:F60013043)))"/>
+						<xs:assert test="lf:F60013044 = sum( ((lf:F60013045) , (lf:F60013046) , (lf:F60013047) , (lf:F60013048) , (lf:F60013049)))"/>
+						<xs:assert test="lf:F60013050 = sum( ((lf:F60013051) , (lf:F60013052) , (lf:F60013053) , (lf:F60013054) , (lf:F60013055) , (lf:F60013056) , (lf:F60013057) , (lf:F60013058)))"/>
+						<xs:assert test="lf:F60013059 = sum( ((lf:F60013060) , (lf:F60013061) , (lf:F60013062) , (lf:F60013063)))"/>
+						<xs:assert test="lf:F60013064 = sum( ((lf:F60013065) , (lf:F60013066)))"/>
+						<xs:assert test="lf:F60013068 = sum( ((lf:F60013001) , (lf:F60013036) , (lf:F60013067)))"/>
+						<xs:assert test="lf:F60012001 = sum( ((lf:F60010001) , (-1)*(lf:F60011001)))"/>
+						<xs:assert test="lf:F60012002 = sum( ((lf:F60010002) , (-1)*(lf:F60011002)))"/>
+						<xs:assert test="lf:F60012003 = sum( ((lf:F60010003) , (-1)*(lf:F60011003)))"/>
+						<xs:assert test="lf:F60012004 = sum( ((lf:F60010004) , (-1)*(lf:F60011004)))"/>
+						<xs:assert test="lf:F60012005 = sum( ((lf:F60010005) , (-1)*(lf:F60011005)))"/>
+						<xs:assert test="lf:F60012006 = sum( ((lf:F60010006) , (-1)*(lf:F60011006)))"/>
+						<xs:assert test="lf:F60012007 = sum( ((lf:F60010007) , (-1)*(lf:F60011007)))"/>
+						<xs:assert test="lf:F60012008 = sum( ((lf:F60010008) , (-1)*(lf:F60011008)))"/>
+						<xs:assert test="lf:F60012009 = sum( ((lf:F60010009) , (-1)*(lf:F60011009)))"/>
+						<xs:assert test="lf:F60012010 = sum( ((lf:F60010010) , (-1)*(lf:F60011010)))"/>
+						<xs:assert test="lf:F60012011 = sum( ((lf:F60010011) , (-1)*(lf:F60011011)))"/>
+						<xs:assert test="lf:F60012012 = sum( ((lf:F60010012) , (-1)*(lf:F60011012)))"/>
+						<xs:assert test="lf:F60012013 = sum( ((lf:F60010013) , (-1)*(lf:F60011013)))"/>
+						<xs:assert test="lf:F60012014 = sum( ((lf:F60010014) , (-1)*(lf:F60011014)))"/>
+						<xs:assert test="lf:F60012015 = sum( ((lf:F60010015) , (-1)*(lf:F60011015)))"/>
+						<xs:assert test="lf:F60012016 = sum( ((lf:F60010016) , (-1)*(lf:F60011016)))"/>
+						<xs:assert test="lf:F60012017 = sum( ((lf:F60010017) , (-1)*(lf:F60011017)))"/>
+						<xs:assert test="lf:F60012018 = sum( ((lf:F60010018) , (-1)*(lf:F60011018)))"/>
+						<xs:assert test="lf:F60012019 = sum( ((lf:F60010019) , (-1)*(lf:F60011019)))"/>
+						<xs:assert test="lf:F60012020 = sum( ((lf:F60010020) , (-1)*(lf:F60011020)))"/>
+						<xs:assert test="lf:F60012021 = sum( ((lf:F60010021) , (-1)*(lf:F60011021)))"/>
+						<xs:assert test="lf:F60012022 = sum( ((lf:F60010022) , (-1)*(lf:F60011022)))"/>
+						<xs:assert test="lf:F60012023 = sum( ((lf:F60010023) , (-1)*(lf:F60011023)))"/>
+						<xs:assert test="lf:F60012024 = sum( ((lf:F60010024) , (-1)*(lf:F60011024)))"/>
+						<xs:assert test="lf:F60012025 = sum( ((lf:F60010025) , (-1)*(lf:F60011025)))"/>
+						<xs:assert test="lf:F60012026 = sum( ((lf:F60010026) , (-1)*(lf:F60011026)))"/>
+						<xs:assert test="lf:F60012027 = sum( ((lf:F60010027) , (-1)*(lf:F60011027)))"/>
+						<xs:assert test="lf:F60012028 = sum( ((lf:F60010028) , (-1)*(lf:F60011028)))"/>
+						<xs:assert test="lf:F60012029 = sum( ((lf:F60010029) , (-1)*(lf:F60011029)))"/>
+						<xs:assert test="lf:F60012030 = sum( ((lf:F60010030) , (-1)*(lf:F60011030)))"/>
+						<xs:assert test="lf:F60012031 = sum( ((lf:F60010031) , (-1)*(lf:F60011031)))"/>
+						<xs:assert test="lf:F60012032 = sum( ((lf:F60010032) , (-1)*(lf:F60011032)))"/>
+						<xs:assert test="lf:F60012033 = sum( ((lf:F60010033) , (-1)*(lf:F60011033)))"/>
+						<xs:assert test="lf:F60012034 = sum( ((lf:F60010034) , (-1)*(lf:F60011034)))"/>
+						<xs:assert test="lf:F60012035 = sum( ((lf:F60010035) , (-1)*(lf:F60011035)))"/>
+						<xs:assert test="lf:F60012036 = sum( ((lf:F60010036) , (-1)*(lf:F60011036)))"/>
+						<xs:assert test="lf:F60012037 = sum( ((lf:F60010037) , (-1)*(lf:F60011037)))"/>
+						<xs:assert test="lf:F60012038 = sum( ((lf:F60010038) , (-1)*(lf:F60011038)))"/>
+						<xs:assert test="lf:F60012039 = sum( ((lf:F60010039) , (-1)*(lf:F60011039)))"/>
+						<xs:assert test="lf:F60012040 = sum( ((lf:F60010040) , (-1)*(lf:F60011040)))"/>
+						<xs:assert test="lf:F60012041 = sum( ((lf:F60010041) , (-1)*(lf:F60011041)))"/>
+						<xs:assert test="lf:F60012042 = sum( ((lf:F60010042) , (-1)*(lf:F60011042)))"/>
+						<xs:assert test="lf:F60012043 = sum( ((lf:F60010043) , (-1)*(lf:F60011043)))"/>
+						<xs:assert test="lf:F60012044 = sum( ((lf:F60010044) , (-1)*(lf:F60011044)))"/>
+						<xs:assert test="lf:F60012045 = sum( ((lf:F60010045) , (-1)*(lf:F60011045)))"/>
+						<xs:assert test="lf:F60012046 = sum( ((lf:F60010046) , (-1)*(lf:F60011046)))"/>
+						<xs:assert test="lf:F60012047 = sum( ((lf:F60010047) , (-1)*(lf:F60011047)))"/>
+						<xs:assert test="lf:F60012048 = sum( ((lf:F60010048) , (-1)*(lf:F60011048)))"/>
+						<xs:assert test="lf:F60012049 = sum( ((lf:F60010049) , (-1)*(lf:F60011049)))"/>
+						<xs:assert test="lf:F60012050 = sum( ((lf:F60010050) , (-1)*(lf:F60011050)))"/>
+						<xs:assert test="lf:F60012051 = sum( ((lf:F60010051) , (-1)*(lf:F60011051)))"/>
+						<xs:assert test="lf:F60012052 = sum( ((lf:F60010052) , (-1)*(lf:F60011052)))"/>
+						<xs:assert test="lf:F60012053 = sum( ((lf:F60010053) , (-1)*(lf:F60011053)))"/>
+						<xs:assert test="lf:F60012054 = sum( ((lf:F60010054) , (-1)*(lf:F60011054)))"/>
+						<xs:assert test="lf:F60012055 = sum( ((lf:F60010055) , (-1)*(lf:F60011055)))"/>
+						<xs:assert test="lf:F60012056 = sum( ((lf:F60010056) , (-1)*(lf:F60011056)))"/>
+						<xs:assert test="lf:F60012057 = sum( ((lf:F60010057) , (-1)*(lf:F60011057)))"/>
+						<xs:assert test="lf:F60012058 = sum( ((lf:F60010058) , (-1)*(lf:F60011058)))"/>
+						<xs:assert test="lf:F60012059 = sum( ((lf:F60010059) , (-1)*(lf:F60011059)))"/>
+						<xs:assert test="lf:F60012060 = sum( ((lf:F60010060) , (-1)*(lf:F60011060)))"/>
+						<xs:assert test="lf:F60012061 = sum( ((lf:F60010061) , (-1)*(lf:F60011061)))"/>
+						<xs:assert test="lf:F60012062 = sum( ((lf:F60010062) , (-1)*(lf:F60011062)))"/>
+						<xs:assert test="lf:F60012063 = sum( ((lf:F60010063) , (-1)*(lf:F60011063)))"/>
+						<xs:assert test="lf:F60012064 = sum( ((lf:F60010064) , (-1)*(lf:F60011064)))"/>
+						<xs:assert test="lf:F60012065 = sum( ((lf:F60010065) , (-1)*(lf:F60011065)))"/>
+						<xs:assert test="lf:F60012066 = sum( ((lf:F60010066) , (-1)*(lf:F60011066)))"/>
+						<xs:assert test="lf:F60012067 = sum( ((lf:F60010067) , (-1)*(lf:F60011067)))"/>
+						<xs:assert test="lf:F60012068 = sum( ((lf:F60010068) , (-1)*(lf:F60011068)))"/>
+						<!--F60010000 -->
+						<!--F60011000-->
+						<!--F60012000-->
+						<!--F60013000-->
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

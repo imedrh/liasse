@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="urn:liassefiscale"
+           xmlns="urn:liassefiscale"
+           elementFormDefault="qualified">
+    <xs:import namespace="urn:liassefiscale:typescommuns" schemaLocation="Typescommuns.xsd"/>
+	<xs:complexType name="T_Entete">
+		<xs:annotation>
+			<xs:documentation>Entete d'une declaration</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MatriculeFiscalDeclarant" type="lf:T_MatriculeFiscal_13c"/>
+			<xs:element name="NometPrenomouRaisonSociale" type="lf:T_ChaineTexte250"/>
+			<xs:element name="Activite" type="lf:T_ChaineTexte250"/>
+			<xs:element name="Adresse" type="lf:T_ChaineTexte250"/>
+			<xs:element name="Exercice" type="lf:T_Annee"/>
+			<xs:element name="DateDebutExercice" type="lf:T_Date"/>
+			<xs:element name="DateClotureExercice" type="lf:T_Date"/>
+			<xs:element name="ActeDeDepot" type="lf:T_ActeDeDepot" default="0"/>
+			<xs:element name="NatureDepot" type="lf:T_NatureDepot"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
