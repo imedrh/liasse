@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - Liasse Fiscale App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Importation de la police Inter */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Fond dégradé subtil pour un look moderne */
+            background: linear-gradient(to right bottom, #6d28d9, #4f46e5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Prend toute la hauteur de la fenêtre */
+            margin: 0;
+            padding: 1rem; /* Padding général pour les petits écrans */
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 1rem; /* Plus arrondi */
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3); /* Ombre plus prononcée */
+            width: 100%;
+            max-width: 420px; /* Légèrement plus large pour les champs */
+            padding: 2.5rem; /* Plus de padding */
+            transition: transform 0.3s ease-in-out; /* Animation à l'apparition */
+            transform: translateY(-20px); /* Légère translation pour l'animation */
+            animation: fadeInCard 0.5s forwards ease-out; /* Animation personnalisée */
+        }
+        @keyframes fadeInCard {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Styles généraux pour les inputs et boutons */
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #d1d5db; /* Bordure grise plus claire */
+            border-radius: 0.625rem; /* Plus arrondi */
+            font-size: 1rem;
+            color: #374151; /* Texte gris foncé */
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            background-color: #ffffff; /* Fond blanc pour les inputs */
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #4f46e5; /* Bleu-violet plus profond */
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.25); /* Ombre de focus plus prononcée */
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            border-radius: 0.625rem;
+            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out, box-shadow 0.2s ease-in-out;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background-color: #4f46e5; /* Bleu-violet */
+            color: #ffffff;
+        }
+        .btn-primary:hover {
+            background-color: #4338ca; /* Plus foncé */
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .btn-primary:active {
+            transform: translateY(0);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        /* Message Box */
+        .message-box {
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.625rem;
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+            display: none; /* Hidden by default */
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            opacity: 0; /* Pour l'animation d'apparition/disparition */
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+            transform: translateY(-10px);
+        }
+        .message-box.show { /* Nouvelle classe pour afficher le message avec animation */
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .message-box.error {
+            background-color: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #ef4444;
+        }
+        .message-box.success {
+            background-color: #ecfdf5;
+            color: #059669;
+            border: 1px solid #10b981;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-indigo-700 to-purple-800">
+
+    <div class="card">
+        <div class="text-center mb-8">
+            <i class="fas fa-file-invoice text-5xl text-indigo-600 mb-4"></i>
+            <h1 class="text-3xl font-bold text-gray-800">Bienvenue !</h1>
+            <p class="text-gray-600 mt-2">Connectez-vous à votre compte</p>
+        </div>
+
+        <div id="phpMessage" class="message-box"></div>
+
+        <form action="php/login.php" method="POST" class="space-y-6">
+            <div>
+                <label for="username" class="block text-gray-700 text-sm font-medium mb-2">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username" class="form-input" placeholder="Votre nom d'utilisateur" required autocomplete="username">
+            </div>
+            <div>
+                <label for="password" class="block text-gray-700 text-sm font-medium mb-2">Mot de passe</label>
+                <input type="password" id="password" name="password" class="form-input" placeholder="Votre mot de passe" required autocomplete="current-password">
+            </div>
+            
+            <button type="submit" class="btn btn-primary w-full">
+                <i class="fas fa-sign-in-alt mr-2"></i> Se Connecter
+            </button>
+        </form>
+
+        <div class="text-center mt-6">
+            <p class="text-gray-600">
+                Pas encore de compte ? 
+                <a href="register.html" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200">Inscrivez-vous ici</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const phpMessageBox = document.getElementById('phpMessage');
+
+            // Function to display messages with animation (consistent with register.html)
+            function showMessage(message, type = 'error') {
+                phpMessageBox.textContent = message;
+                phpMessageBox.className = `message-box ${type} show`; // Add 'show' class for animation
+                phpMessageBox.style.display = 'block';
+
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    phpMessageBox.classList.remove('show'); // Trigger fade out
+                    setTimeout(() => {
+                        phpMessageBox.style.display = 'none';
+                        phpMessageBox.classList.remove(type);
+                    }, 300); // Wait for transition to complete before hiding
+                }, 5000);
+            }
+
+            // Check for URL parameters to display messages (e.g., from PHP redirection)
+            const urlParams = new URLSearchParams(window.location.search);
+            const message = urlParams.get('message');
+            const type = urlParams.get('type'); // 'success' or 'error'
+
+            if (message && type) {
+                showMessage(decodeURIComponent(message), type);
+                // Clean URL after displaying message to avoid re-display on refresh
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        });
+    </script>
+</body>
+</html>

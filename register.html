@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - Liasse Fiscale App</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Importation de la police Inter */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Fond dégradé subtil pour un look moderne */
+            background: linear-gradient(to right bottom, #6d28d9, #4f46e5); /* Utilise un dégradé violet/indigo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Prend toute la hauteur de la fenêtre */
+            margin: 0;
+            padding: 1rem; /* Padding général pour les petits écrans */
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 1rem; /* Plus arrondi */
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3); /* Ombre plus prononcée */
+            width: 100%;
+            max-width: 420px; /* Légèrement plus large pour les champs */
+            padding: 2.5rem; /* Plus de padding */
+            transition: transform 0.3s ease-in-out; /* Animation à l'apparition */
+            transform: translateY(-20px); /* Légère translation pour l'animation */
+            animation: fadeInCard 0.5s forwards ease-out; /* Animation personnalisée */
+        }
+        @keyframes fadeInCard {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Styles généraux pour les inputs et boutons */
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #d1d5db; /* Bordure grise plus claire */
+            border-radius: 0.625rem; /* Plus arrondi */
+            font-size: 1rem;
+            color: #374151; /* Texte gris foncé */
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            background-color: #ffffff; /* Fond blanc pour les inputs */
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #4f46e5; /* Bleu-violet plus profond */
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.25); /* Ombre de focus plus prononcée */
+        }
+
+        .btn-primary {
+            display: inline-flex; /* Pour centrer l'icône et le texte */
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            border-radius: 0.625rem;
+            background-color: #4f46e5; /* Bleu-violet */
+            color: #ffffff;
+            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out, box-shadow 0.2s ease-in-out;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background-color: #4338ca; /* Plus foncé */
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .btn-primary:active {
+            transform: translateY(0);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .btn-primary i {
+            margin-right: 0.5rem; /* Espace entre icône et texte */
+        }
+
+        /* Message Box */
+        .message-box {
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.625rem;
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+            display: none; /* Hidden by default */
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            opacity: 0; /* Pour l'animation d'apparition/disparition */
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+            transform: translateY(-10px);
+        }
+        .message-box.show { /* Nouvelle classe pour afficher le message avec animation */
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .message-box.error {
+            background-color: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #ef4444;
+        }
+        .message-box.success {
+            background-color: #ecfdf5;
+            color: #059669;
+            border: 1px solid #10b981;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-indigo-700 to-purple-800">
+    <div class="card">
+        <div class="text-center mb-8">
+            <i class="fas fa-user-plus text-5xl text-indigo-600 mb-4"></i>
+            <h2 class="text-3xl font-bold text-gray-800">Créez votre compte</h2>
+            <p class="text-gray-600 mt-2">Rejoignez la communauté Liasse Fiscale App</p>
+        </div>
+
+        <!-- Message box for errors or success -->
+        <div id="messageBox" class="message-box"></div>
+
+        <form id="registerForm" action="php/register.php" method="POST" class="space-y-4">
+            <div>
+                <label for="username" class="block text-gray-700 text-sm font-medium mb-2">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username" class="form-input" placeholder="Choisissez un nom d'utilisateur" required autocomplete="username">
+            </div>
+            <div>
+                <label for="email" class="block text-gray-700 text-sm font-medium mb-2">Adresse Email</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="Votre adresse email" required autocomplete="email">
+            </div>
+            <div>
+                <label for="password" class="block text-gray-700 text-sm font-medium mb-2">Mot de passe</label>
+                <input type="password" id="password" name="password" class="form-input" placeholder="Créez un mot de passe" required autocomplete="new-password">
+            </div>
+            <div>
+                <label for="confirm_password" class="block text-gray-700 text-sm font-medium mb-2">Confirmer le mot de passe</label>
+                <input type="password" id="confirm_password" name="confirm_password" class="form-input" placeholder="Confirmez votre mot de passe" required autocomplete="new-password">
+            </div>
+            <div>
+                <label for="role" class="block text-gray-700 text-sm font-medium mb-2">Rôle</label>
+                <select id="role" name="role" class="form-input" required>
+                    <option value="user">Utilisateur Standard</option>
+                    <option value="admin">Administrateur</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn-primary mt-6">
+                <i class="fas fa-user-plus"></i> S'inscrire
+            </button>
+        </form>
+        <p class="text-center text-gray-600 text-sm mt-6">
+            Déjà un compte ? <a href="login.html" class="text-indigo-600 hover:text-indigo-800 font-medium transition-colors duration-200">Connectez-vous</a>
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const registerForm = document.getElementById('registerForm');
+            const messageBox = document.getElementById('messageBox');
+
+            // Function to display messages with animation
+            function showMessage(message, type = 'error') {
+                messageBox.textContent = message;
+                messageBox.className = `message-box ${type} show`; // Add 'show' class for animation
+                messageBox.style.display = 'block';
+
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    messageBox.classList.remove('show'); // Trigger fade out
+                    setTimeout(() => {
+                        messageBox.style.display = 'none';
+                        messageBox.classList.remove(type);
+                    }, 300); // Wait for transition to complete before hiding
+                }, 5000);
+            }
+
+            registerForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Empêche l'envoi du formulaire par défaut
+
+                const form = event.target;
+                
+                // Reset message box
+                messageBox.style.display = 'none';
+                messageBox.classList.remove('success', 'error', 'show'); // Ensure clean state
+
+                const username = form.username.value.trim();
+                const email = form.email.value.trim();
+                const password = form.password.value;
+                const confirmPassword = form.confirm_password.value;
+                // Le rôle est déjà géré par le select
+
+                // Simple validation côté client
+                if (!username || !email || !password || !confirmPassword) {
+                    showMessage("Veuillez remplir tous les champs.");
+                    return;
+                }
+                if (password !== confirmPassword) {
+                    showMessage("Les mots de passe ne correspondent pas.");
+                    return;
+                }
+                if (password.length < 6) {
+                    showMessage("Le mot de passe doit contenir au moins 6 caractères.");
+                    return;
+                }
+                // Regex de validation d'email plus robuste
+                if (!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) {
+                    showMessage("Format d'email invalide.");
+                    return;
+                }
+
+                // Envoi du formulaire via Fetch API
+                fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form), // Crée un FormData à partir du formulaire
+                    redirect: 'follow' // S'assure que fetch suit les redirections (c'est le défaut, mais explicitons-le)
+                })
+                .then(response => {
+                    // Si PHP a redirigé, response.redirected sera true.
+                    // Dans ce cas, nous devons forcer la navigation de la fenêtre.
+                    if (response.redirected) {
+                        console.log("Redirection PHP détectée. Navigation vers : " + response.url);
+                        window.location.href = response.url; // Force la navigation de la page principale
+                        // IMPORTANT : Ne pas retourner response.text() ou response.json() ici,
+                        // car la page va changer et le reste de la chaîne .then() ne sera pas pertinent.
+                        return new Promise(() => {}); // Retourne une promesse non résolue pour arrêter la chaîne .then()
+                    }
+                    
+                    if (response.ok) { // Si la réponse est OK (200-299), mais pas de redirection
+                        return response.text();
+                    } else { // Si la réponse indique une erreur HTTP (4xx, 5xx)
+                        return response.text().then(text => { throw new Error(text); });
+                    }
+                })
+                .then(data => {
+                    // Cette partie du code s'exécutera UNIQUEMENT si PHP n'a PAS redirigé
+                    // et a envoyé un corps de réponse avec un statut HTTP 2xx.
+                    console.log("Réponse de register.php (sans redirection) :", data);
+
+                    if (data.includes("Inscription réussie") || data.includes("succès")) { 
+                        showMessage("Inscription réussie ! Vous allez être redirigé.", 'success');
+                        setTimeout(() => {
+                            // Au cas où la redirection PHP n'aurait pas été détectée par response.redirected pour une raison quelconque,
+                            // on force une navigation ici aussi, en plus de la principale (qui devrait avoir eu lieu).
+                            window.location.href = 'login.html?message=' + encodeURIComponent("Inscription réussie ! Vous pouvez maintenant vous connecter.") + '&type=success';
+                        }, 1500); 
+                    } else if (data.includes("Erreur") || data.includes("déjà pris") || data.includes("déjà enregistré") || data.includes("invalide") || data.includes("Fatal error")) {
+                        let errorMessage = "Une erreur est survenue lors de l'inscription.";
+                        if (data.includes("Nom d'utilisateur déjà pris")) {
+                            errorMessage = "Ce nom d'utilisateur est déjà pris.";
+                        } else if (data.includes("email est déjà enregistré")) {
+                            errorMessage = "Cet email est déjà enregistré.";
+                        } else if (data.includes("Mots de passe ne correspondent pas")) {
+                            errorMessage = "Les mots de passe ne correspondent pas.";
+                        } else if (data.includes("Fatal error") || data.includes("<br />") || data.includes("<font")) {
+                            errorMessage = "Erreur serveur inattendue. Veuillez réessayer ou contacter l'administrateur. (Détails en console)";
+                            console.error("Erreur PHP reçue (corps de réponse) :", data); 
+                        }
+                        
+                        showMessage(errorMessage); 
+                    } else {
+                        // Cas inattendu : réponse OK mais contenu non reconnu et pas de redirection.
+                        console.error("Réponse inattendue de register.php (corps non traité) :", data);
+                        showMessage("Une réponse inattendue a été reçue du serveur. Veuillez réessayer. (Code: URE)");
+                    }
+                })
+                .catch(error => {
+                    console.error('Erreur lors de l\'envoi du formulaire (catch global) :', error);
+                    let displayError = "Une erreur de réseau est survenue ou la requête a échoué.";
+                    if (error.message) {
+                        displayError = "Erreur: " + error.message;
+                    }
+                    showMessage(displayError);
+                });
+            });
+
+            // Initial message display from URL parameters (if redirected from PHP)
+            const urlParams = new URLSearchParams(window.location.search);
+            const messageFromUrl = urlParams.get('message');
+            const typeFromUrl = urlParams.get('type');
+
+            if (messageFromUrl && typeFromUrl) {
+                showMessage(decodeURIComponent(messageFromUrl), typeFromUrl);
+                // Clean URL after displaying message to avoid re-display on refresh
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        });
+    </script>
+</body>
+</html>

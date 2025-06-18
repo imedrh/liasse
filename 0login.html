@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - Liasse Fiscale</title>
+    <link href="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)" rel="stylesheet">
+    <style>
+        @import url('[https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap)');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e2e8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 400px;
+            padding: 2.5rem;
+        }
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            color: #4a5568;
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+        .btn-primary {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background-color: #6366f1;
+            color: #ffffff;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #4f46e5;
+        }
+        .message-box {
+            background-color: #fef2f2;
+            color: #dc2626;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ef4444;
+            display: none; /* Hidden by default */
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2 class="text-2xl font-bold text-center mb-6 text-gray-800">Connexion</h2>
+
+        <!-- Message box for errors or success -->
+        <div id="messageBox" class="message-box"></div>
+
+        <form id="loginForm" action="php/login.php" method="POST">
+            <div class="mb-4">
+                <label for="username" class="block text-gray-700 text-sm font-medium mb-2">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username" class="form-input" required autocomplete="username">
+            </div>
+            <div class="mb-6">
+                <label for="password" class="block text-gray-700 text-sm font-medium mb-2">Mot de passe</label>
+                <input type="password" id="password" name="password" class="form-input" required autocomplete="current-password">
+            </div>
+            <button type="submit" class="btn-primary">Se connecter</button>
+        </form>
+        <p class="text-center text-gray-600 text-sm mt-6">
+            Pas encore de compte ? <a href="register.html" class="text-indigo-600 hover:text-indigo-800 font-medium">Créez-en un</a>
+        </p>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêche l'envoi du formulaire par défaut
+
+            const form = event.target;
+            const messageBox = document.getElementById('messageBox');
+            messageBox.style.display = 'none'; // Cache le message précédent
+
+            const username = form.username.value.trim();
+            const password = form.password.value;
+
+            // Simple validation côté client
+            if (!username || !password) {
+                messageBox.textContent = "Veuillez remplir tous les champs.";
+                messageBox.style.display = 'block';
+                return;
+            }
+
+            // Envoi du formulaire via Fetch API
+            fetch(form.action, {
+                method: form.method,
+                body: new FormData(form)
+            })
+            .then(response => {
+                // Vérifier si la réponse est une redirection (code 200 avec contenu de la page redirigée ou 3xx)
+                // Si PHP redirige via header(), fetch ne suivra pas la redirection directement,
+                // mais le contenu de la page de destination pourrait être retourné.
+                // Pour cet exemple, on se base sur la présence d'un message d'erreur ou d'un succès.
+                return response.text(); // Retourne le corps de la réponse comme texte
+            })
+            .then(data => {
+                // Le PHP gère déjà la redirection si la connexion est réussie.
+                // Cette partie est pour gérer les messages d'erreur si PHP ne redirige PAS.
+                if (data.includes("Nom d'utilisateur ou mot de passe incorrect") || data.includes("Erreur interne du serveur")) {
+                    // Tenter d'extraire le message si PHP renvoie le message dans un commentaire ou en texte brut
+                    let message = data.includes("<!-- Message: ") ? data.split("<!-- Message: ")[1].split(" -->")[0] : data;
+                    if (!message || message.includes("<!--")) { // Fallback si le message n'est pas clair
+                         message = "Nom d'utilisateur ou mot de passe incorrect.";
+                    }
+                    messageBox.textContent = message;
+                    messageBox.style.display = 'block';
+                } else if (data.includes("Connexion réussie")) {
+                    // Si PHP n'a pas redirigé mais a signalé un succès (ne devrait pas arriver avec redirect()),
+                    // on peut rediriger manuellement ici.
+                    window.location.href = 'index.php';
+                } else {
+                    // Si la réponse n'est ni une erreur claire, ni un succès clair,
+                    // on peut supposer que la redirection a eu lieu ou qu'il y a eu un autre problème.
+                    // Pour un système simple, on peut tenter une redirection par défaut.
+                    // Ou simplement ne rien faire si on s'attend à ce que PHP gère la redirection.
+                    console.log("PHP response:", data);
+                    // Redirection par défaut si aucune erreur n'est explicitement signalée
+                    window.location.href = 'index.php';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                messageBox.textContent = "Une erreur de réseau est survenue.";
+                messageBox.style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>

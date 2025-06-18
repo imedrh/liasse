@@ -1,0 +1,178 @@
+<!-- HTML/register.html - Formulaire d'inscription -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - Liasse Fiscale</title>
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e2e8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 400px;
+            padding: 2.5rem;
+        }
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            color: #4a5568;
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+        .btn-primary {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background-color: #6366f1;
+            color: #ffffff;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #4f46e5;
+        }
+        .message-box {
+            background-color: #fef2f2;
+            color: #dc2626;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ef4444;
+            display: none; /* Hidden by default */
+        }
+        .message-box.success {
+            background-color: #ecfdf5;
+            color: #059669;
+            border-color: #10b981;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2 class="text-2xl font-bold text-center mb-6 text-gray-800">Créer un compte</h2>
+
+        <!-- Message box for errors or success -->
+        <div id="messageBox" class="message-box"></div>
+
+        <form id="registerForm" action="php/register.php" method="POST">
+            <div class="mb-4">
+                <label for="username" class="block text-gray-700 text-sm font-medium mb-2">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username" class="form-input" required autocomplete="username">
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-gray-700 text-sm font-medium mb-2">Adresse Email</label>
+                <input type="email" id="email" name="email" class="form-input" required autocomplete="email">
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-gray-700 text-sm font-medium mb-2">Mot de passe</label>
+                <input type="password" id="password" name="password" class="form-input" required autocomplete="new-password">
+            </div>
+            <div class="mb-6">
+                <label for="confirm_password" class="block text-gray-700 text-sm font-medium mb-2">Confirmer le mot de passe</label>
+                <input type="password" id="confirm_password" name="confirm_password" class="form-input" required autocomplete="new-password">
+            </div>
+            <button type="submit" class="btn-primary">S'inscrire</button>
+        </form>
+        <p class="text-center text-gray-600 text-sm mt-6">
+            Déjà un compte ? <a href="login.html" class="text-indigo-600 hover:text-indigo-800 font-medium">Connectez-vous</a>
+        </p>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêche l'envoi du formulaire par défaut
+
+            const form = event.target;
+            const messageBox = document.getElementById('messageBox');
+            messageBox.style.display = 'none'; // Cache le message précédent
+            messageBox.classList.remove('success'); // Supprime la classe succès
+
+            const username = form.username.value.trim();
+            const email = form.email.value.trim();
+            const password = form.password.value;
+            const confirmPassword = form.confirm_password.value;
+
+            // Simple validation côté client
+            if (!username || !email || !password || !confirmPassword) {
+                messageBox.textContent = "Veuillez remplir tous les champs.";
+                messageBox.style.display = 'block';
+                return;
+            }
+            if (password !== confirmPassword) {
+                messageBox.textContent = "Les mots de passe ne correspondent pas.";
+                messageBox.style.display = 'block';
+                return;
+            }
+            if (password.length < 6) {
+                messageBox.textContent = "Le mot de passe doit contenir au moins 6 caractères.";
+                messageBox.style.display = 'block';
+                return;
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                messageBox.textContent = "Format d'email invalide.";
+                messageBox.style.display = 'block';
+                return;
+            }
+
+            // Envoi du formulaire via Fetch API pour gérer la réponse PHP de manière asynchrone
+            fetch(form.action, {
+                method: form.method,
+                body: new FormData(form) // Crée un FormData à partir du formulaire
+            })
+            .then(response => response.text()) // Récupère la réponse comme texte (le PHP peut inclure du HTML)
+            .then(data => {
+                // Pour l'instant, on suppose que la réponse PHP de register.php est juste un message ou une redirection.
+                // Si la redirection a été envoyée par PHP (header location), cette partie ne s'exécutera pas.
+                // Sinon, on peut parser le message si PHP renvoie du JSON.
+                // Pour cet exemple, on peut simuler la gestion des messages si PHP n'a pas redirigé.
+
+                // Vérifier si la réponse est une redirection (bien que fetch ne suive pas les redirections 3xx par défaut)
+                // Le PHP a déjà géré la redirection si 'success' est vrai.
+                // Si PHP n'a pas redirigé, c'est qu'il y a eu un message d'erreur.
+                if (data.includes("Erreur lors de l'inscription") || data.includes("Ce nom d'utilisateur est déjà pris") || data.includes("Cet email est déjà enregistré")) {
+                    messageBox.textContent = data.includes("<!-- Message: ") ? data.split("<!-- Message: ")[1].split(" -->")[0] : "Une erreur est survenue lors de l'inscription."; // Tenter d'extraire le message si PHP renvoie le message dans un commentaire
+                    messageBox.style.display = 'block';
+                    messageBox.classList.remove('success');
+                } else if (data.includes("Inscription réussie")) {
+                    // Si PHP ne redirige pas et renvoie un succès (ce qui ne devrait pas arriver avec redirect()),
+                    // on peut mettre un message de succès ici.
+                    messageBox.textContent = "Inscription réussie. Vous allez être redirigé.";
+                    messageBox.classList.add('success');
+                    messageBox.style.display = 'block';
+                    setTimeout(() => {
+                         window.location.href = 'login.html'; // Rediriger manuellement
+                    }, 1000);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                messageBox.textContent = "Une erreur de réseau est survenue.";
+                messageBox.style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
